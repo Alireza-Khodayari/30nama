@@ -85,7 +85,7 @@ html {
 body {
     direction: rtl;
     color: #fff;
-    background-color: #000;
+    background-color: #0d1113;
     font-size: 1.8rem;
     font-family: Vazirmatn;
 }
