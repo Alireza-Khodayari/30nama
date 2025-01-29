@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade } from "swiper/modules";
+import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 
 import "swiper/css";
 import tmdbApi from "../../api";
 import "swiper/css/effect-fade";
-import axios from "axios";
+import { Style } from "./style";
+import Button from "../UiElements/Button";
 
 // import "./styles.css";
 
@@ -29,34 +30,55 @@ export default function HeroSlider() {
   }, []);
 
   function renderFarm() {
-    return data.map(({ id, backdrop_path }) => {
-      return (
-        <SwiperSlide key={id}>
-          <div
-            className="image"
-            style={{
-              backgroundImage: `url(https://image.tmdb.org/t/p/original${backdrop_path})`,
-              backgroundSize: "cover",
-              backgroundPosition: "top right",
-              backgroundRepeat: "no-repeat",
-              width: "100%",
-              height: "100vh",
-              zIndex: "1",
-            }}
-          ></div>
-          <div className="content"></div>
-        </SwiperSlide>
-      );
-    });
+    return data.map(
+      ({ id, backdrop_path, original_title, title, overview }) => {
+        return (
+          <SwiperSlide key={id}>
+            <div
+              className="slider-item"
+              style={{
+                backgroundImage: `url(https://image.tmdb.org/t/p/original${backdrop_path})`,
+                backgroundSize: "cover",
+                backgroundPosition: "top right",
+                width: "100%",
+                height: "100vh",
+              }}
+            >
+              <div className="content">
+                <div className="container">
+                  <h1 className="title">{original_title}</h1>
+                  <div className="breadcrumb">
+                    <span>{title}</span>
+                  </div>
+                  <p className="overview">{overview}</p>
+                  <div className="action-buttons flex gap-10">
+                    <Button type="blue" link="/">
+                      تماشای آنلاین
+                    </Button>
+                    <Button type="blue" link="/">
+                      بیشتر
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        );
+      }
+    );
   }
 
   return (
-    <Swiper
-      className="mySwiper"
-      modules={[Autoplay]}
-      autoplay={{ delay: 7000, disableOnInteraction: false }}
-    >
-      {loading ? <div>loading...</div> : renderFarm()}
-    </Swiper>
+    <Style className="hero-slider">
+      <Swiper
+        className="mySwiper"
+        modules={[Autoplay]}
+        autoplay={{ delay: 7000, disableOnInteraction: false }}
+        slidesPerView={1}
+        // rtl={true}
+      >
+        {loading ? <div>loading...</div> : renderFarm()}
+      </Swiper>
+    </Style>
   );
 }

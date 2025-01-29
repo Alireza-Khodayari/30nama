@@ -7,7 +7,7 @@ export default function Header() {
     <Style className="header">
       <div className="container">
         <div className="header-inner flex space-between align-center">
-          <div class="first-items flex justify-start align-center gap-20">
+          <div className="first-items flex justify-start align-center gap-20">
             <div className="logo">
               <Link to="/">
                 <img src="assets/images/logo.png" />
