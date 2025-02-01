@@ -47,16 +47,18 @@ export const Style = styled.div`
     left: 0;
     bottom: 0;
   }
-
   .number-h1 {
     font-size: 20rem;
-    color: #454545;
+    color: #000;
+    font-weight: bold;
     position: absolute;
     z-index: 6;
     left: 70%;
     top: 50%;
     transform: translateY(-50%);
     opacity: 1;
+    text-shadow: 0 0 10px #454545;
+    letter-spacing: -20px;
     transition: all 0.5s;
   }
   &:hover .number-h1 {
@@ -67,6 +69,8 @@ export const Style = styled.div`
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
     position: absolute;
+    left: 0;
+    top: 0;
     z-index: 5;
     opacity: 0;
     transition: all 1s;

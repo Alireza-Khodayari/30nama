@@ -10,8 +10,9 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 import MovieCard from "../MovieCard";
 import tmdbApi from "../../api";
+import Button from "../UiElements/Button";
 
-export default function MovieList() {
+export default function MovieList({url, icon, listTitle, hasNumber}) {
   const [swiperRef, setSwiperRef] = useState(null);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -19,7 +20,7 @@ export default function MovieList() {
   useEffect(function () {
     setLoading(true);
     tmdbApi
-      .get("movie/top_rated?language=fa-IR&page=1")
+      .get(`movie/${url}?language=fa-IR&page=1`)
       .then(function (response) {
         console.log(response.data);
         console.log(response.data.results);
@@ -32,11 +33,13 @@ export default function MovieList() {
   }, []);
 
   function renderFarm() {
-    return data.map(({ poster_path, id, original_title, overview }) => {
+    return data.map(({ poster_path, id, original_title, overview}, index) => {
       const data = {};
       return (
         <SwiperSlide>
           <MovieCard
+            index={index}
+            hasNumber={hasNumber}
             poster_path={poster_path}
             id={id}
             title={original_title}
@@ -49,6 +52,15 @@ export default function MovieList() {
 
   return (
     <Style className="movie-list">
+      <div className="full-container">
+        <div className="top-section flex space-between align-center">
+          <div className="holder flex align-center gap-10">
+            <i class={icon}></i>
+            <h3 class="list-title">{listTitle}</h3>
+          </div>
+          <Button>آرشیو کلی</Button>
+        </div>
+      </div>
       <div className="container">
         <Swiper
           onSwiper={setSwiperRef}

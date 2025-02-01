@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import { Style } from "./style";
 
-export default function MovieCard({ poster_path, id, title, overview }) {
+export default function MovieCard({ poster_path, id, title, overview, hasNumber, index }) {
+  function checkHasNumber(hasNumber) {
+    if(hasNumber) {
+      return <div className="number-h1">{index+1}</div>;
+    }
+  }
   return (
     <Style className="movie-card">
       <h5 className="item__name">{title}</h5>
@@ -41,6 +46,7 @@ export default function MovieCard({ poster_path, id, title, overview }) {
           </div>
         </div>
       </div>
+      {checkHasNumber(hasNumber)}
     </Style>
   );
 }
