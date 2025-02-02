@@ -6,5 +6,6 @@ export const pallete = {
   btnPadding: "3px 15px",
   defaultRadius: "10px",
   btnBlue: "#2d5395",
+  btnBlueHover: "#234786",
 };
 export default pallete;

@@ -97,7 +97,7 @@ ul, li {
 } */
 a {
     text-decoration: none;
-    color: #fff;
+    //color: #fff;
 }
 .full-container {
     width: 100%;

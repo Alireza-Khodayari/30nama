@@ -19,6 +19,7 @@ export const Style = styled.div`
         li {
           display: inline-block;
           padding: 10px;
+          color: #fff;
         }
       }
     }
@@ -26,14 +27,19 @@ export const Style = styled.div`
   .second-items {
     .search {
       a {
+        color: #fff;
         width: 40px;
         height: 40px;
         display: inline-block;
         padding: 5px;
         border-radius: 100%;
         text-align: center;
+        transition: all 0.5s;
         &:hover {
           background-color: #232729;
+        }
+        i {
+          margin-top: 6px;
         }
       }
     }

@@ -55,7 +55,7 @@ export default function HeroSlider() {
                     <Button type="blue" link="/">
                       تماشای آنلاین
                     </Button>
-                    <Button type="blue" link="/">
+                    <Button type="transparent-blue" link="/">
                       بیشتر
                     </Button>
                   </div>

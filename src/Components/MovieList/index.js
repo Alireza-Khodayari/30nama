@@ -58,7 +58,7 @@ export default function MovieList({url, icon, listTitle, hasNumber}) {
             <i class={icon}></i>
             <h3 class="list-title">{listTitle}</h3>
           </div>
-          <Button>آرشیو کلی</Button>
+          <Button type="default">آرشیو کلی</Button>
         </div>
       </div>
       <div className="container">
