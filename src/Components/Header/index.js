@@ -10,7 +10,7 @@ export default function Header() {
           <div className="first-items flex justify-start align-center gap-20">
             <div className="logo">
               <Link to="/">
-                <img src="assets/images/logo.png" />
+                <img src="/assets/images/logo.png" />
               </Link>
             </div>
             <div className="menu">

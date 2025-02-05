@@ -7,6 +7,7 @@ import tmdbApi from "../../api";
 import "swiper/css/effect-fade";
 import { Style } from "./style";
 import Button from "../UiElements/Button";
+import { Link } from "react-router-dom";
 
 // import "./styles.css";
 
@@ -55,9 +56,11 @@ export default function HeroSlider() {
                     <Button type="blue" link="/">
                       تماشای آنلاین
                     </Button>
-                    <Button type="transparent-blue" link="/">
-                      بیشتر
-                    </Button>
+                    <Link to={`item/${id}`}>
+                      <Button type="transparent-blue" link="/">
+                        بیشتر
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </div>
