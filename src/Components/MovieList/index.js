@@ -12,7 +12,7 @@ import MovieCard from "../MovieCard";
 import tmdbApi from "../../api";
 import Button from "../UiElements/Button";
 
-export default function MovieList({url, icon, listTitle, hasNumber}) {
+export default function MovieList({ url, icon, listTitle, hasNumber }) {
   const [swiperRef, setSwiperRef] = useState(null);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -33,11 +33,12 @@ export default function MovieList({url, icon, listTitle, hasNumber}) {
   }, []);
 
   function renderFarm() {
-    return data.map(({ poster_path, id, original_title, overview}, index) => {
+    return data.map(({ poster_path, id, original_title, overview }, index) => {
       const data = {};
       return (
         <SwiperSlide>
           <MovieCard
+            hasDetails={true}
             index={index}
             hasNumber={hasNumber}
             poster_path={poster_path}

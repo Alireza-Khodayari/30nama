@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import HeroSlider from "../../Components/HeroSlider";
 import PrimaryLayout from "../../Components/Layouts/PrimaryLayout";
 import MovieList from "../../Components/MovieList";
@@ -38,6 +39,12 @@ const reviewItems = [
 ]
 
 export default function HomePage() {
+  useEffect(() => {
+    const savedPosition = sessionStorage.getItem("scrollPosition");
+    if (savedPosition) {
+      window.scrollTo(0, parseInt(savedPosition, 10));
+    }
+  }, []);
   return (
     <PrimaryLayout>
       <HeroSlider></HeroSlider>

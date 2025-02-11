@@ -134,6 +134,9 @@ a {
 .align-center {
     align-items: center;
 }
+.flex-column {
+    flex-direction: column;
+}
 .gap-5 {
     gap: 5px;
 }
